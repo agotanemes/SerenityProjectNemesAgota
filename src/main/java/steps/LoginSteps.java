@@ -42,6 +42,7 @@ public class LoginSteps {
         Assert.assertTrue(greetMessage.contains(fName.toLowerCase()));
         Assert.assertTrue(greetMessage.contains(lName.toLowerCase()));
     }
+    //
     @Step
     public void verifyMessegesAreDisplayed(){
         String requiredEmailMessage=loginPage.getRequiredEmailMessage();
