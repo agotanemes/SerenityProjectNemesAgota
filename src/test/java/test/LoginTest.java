@@ -18,4 +18,10 @@ public class LoginTest extends BaseTest{
         String lName="Ioana".toLowerCase();
         loginSteps.verifyUserIsLogedIn(fName,lName);
     }
+    @Test
+    public void loginWithoutUserAndPass(){
+        loginSteps.navigateToLoginPage();
+        loginSteps.loginUserWithEmptyFields();
+        loginSteps.verifyMessegesAreDisplayed();
+    }
 }

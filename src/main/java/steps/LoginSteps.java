@@ -1,6 +1,7 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 import page.HeaderPage;
 import page.LoginPage;
@@ -9,6 +10,7 @@ import models.User;
 public class LoginSteps {
     LoginPage loginPage;
     HeaderPage headerPage;
+    //generate user types
     @Step
     public User generateUser(){
         User user=new User();
@@ -16,6 +18,15 @@ public class LoginSteps {
         user.setPass("manolachiioana");
         return user;
     }
+    @Step
+    public User generateEmptyUser(){
+        User user=new User();
+        user.setEmail("");
+        user.setPass("");
+        return user;
+
+    }
+    //---------------------------------------
     @Step
     public void navigateToLoginPage(){
         loginPage.open();
@@ -29,6 +40,7 @@ public class LoginSteps {
     public void clickLogin(){
         loginPage.clickLoginButton();
     }
+    //login scenarious
     @Step
     public void loginUser(){
         //complete Login fields
@@ -36,6 +48,12 @@ public class LoginSteps {
         //click Login
         clickLogin();
     }
+    @Step
+    public void loginUserWithEmptyFields(){
+        fillLoginData(generateEmptyUser());
+        clickLogin();
+    }
+    //-----------------------------------
     @Step
     public void verifyUserIsLogedIn(String fName, String lName){
         String greetMessage = headerPage.getGreetMessage().toLowerCase();
