@@ -13,10 +13,10 @@ public class LoginPage extends AbstractPage {
     private WebElementFacade passInput;
     @FindBy(id = "send2")
     private WebElementFacade loginButton;
-    @FindBy(id="advice-required-entry-pass")
+    @FindBy(id="advice-required-entry-email")
     private WebElementFacade requiredEmailMessage;
     @FindBy(id="advice-required-entry-pass")
-    private WebElementFacade getRequiredPasslMessage;
+    private WebElementFacade requiredPasslMessage;
 
     public void typeEmail(String email) {
         emailInput.type(email);
@@ -33,7 +33,7 @@ public class LoginPage extends AbstractPage {
         return requiredEmailMessage.getText();
     }
     public String getRequiredPassMessage(){
-        return getRequiredPasslMessage.getText();
+        return requiredPasslMessage.getText();
     }
 
 }
